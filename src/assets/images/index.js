@@ -1,5 +1,5 @@
-import logo from "./orebiLogo.png";
-import logoLight from "./logoLight.png";
+import logo from "./LOGO.png";
+import logoLight from "./logo_white.png";
 import bannerImgOne from "./banner/bannerImgOne.webp";
 import bannerImgTwo from "./banner/bannerImgTwo.webp";
 import bannerImgThree from "./banner/bannerImgThree.webp";
@@ -12,6 +12,7 @@ import newArrOne from "./products/newArrival/newArrOne.webp";
 import newArrTwo from "./products/newArrival/newArrTwo.webp";
 import newArrThree from "./products/newArrival/newArrThree.webp";
 import newArrFour from "./products/newArrival/newArrFour.webp";
+import newArrFive from "./products/newArrival/newArrFive.webp"
 
 // Best Sellers
 import bestSellerOne from "./products/bestSeller/bestSellerOne.webp";
@@ -46,6 +47,7 @@ export {
   newArrTwo,
   newArrThree,
   newArrFour,
+  newArrFive,
 
   // Best Sellers
   bestSellerOne,

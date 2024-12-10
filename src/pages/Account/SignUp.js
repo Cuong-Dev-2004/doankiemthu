@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoLight } from "../../assets/images";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   // ============= Initial State Start here =============
   const [clientName, setClientName] = useState("");
   const [email, setEmail] = useState("");
@@ -69,39 +70,43 @@ const SignUp = () => {
   // ================= Email Validation End here ===============
 
   const handleSignUp = (e) => {
+    const account = localStorage.getItem('user1');
+    const parsedUser = JSON.parse(account);
     e.preventDefault();
     if (checked) {
-      if (!clientName) {
-        setErrClientName("Enter your name");
+      if (clientName == parsedUser.clientName) {
+        setErrClientName("Bị Trùm Tên Đăng Nhập");
+      } else if (!clientName) {
+        setErrClientName("Không Được Bỏ Trống");
       }
       if (!email) {
-        setErrEmail("Enter your email");
+        setErrEmail("Không Được Bỏ Trống");
       } else {
         if (!EmailValidation(email)) {
-          setErrEmail("Enter a Valid email");
+          setErrEmail("Không Được Bỏ Trống");
         }
       }
       if (!phone) {
-        setErrPhone("Enter your phone number");
+        setErrPhone("Vui Lòng Nhập Số Điện THoại");
       }
       if (!password) {
-        setErrPassword("Create a password");
+        setErrPassword("Không Được Bỏ Trống");
       } else {
-        if (password.length < 6) {
-          setErrPassword("Passwords must be at least 6 characters");
+        if (password.length < 9) {
+          setErrPassword("password Quá Ngắn");
         }
       }
       if (!address) {
-        setErrAddress("Enter your address");
+        setErrAddress("Không Được Bỏ Trống");
       }
       if (!city) {
-        setErrCity("Enter your city name");
+        setErrCity("Không Được Bỏ Trống");
       }
       if (!country) {
-        setErrCountry("Enter the country you are residing");
+        setErrCountry("Không Được Bỏ Trống");
       }
       if (!zip) {
-        setErrZip("Enter the zip code of your area");
+        setErrZip("Vui Lòng Nhập Mã Zip");
       }
       // ============== Getting the value ==============
       if (
@@ -115,9 +120,14 @@ const SignUp = () => {
         country &&
         zip
       ) {
+        const user = { clientName, phone, password, email };
+        localStorage.setItem("user1", JSON.stringify(user));
         setSuccessMsg(
-          `Hello dear ${clientName}, Welcome you to OREBI Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+          `Tài Khoản ${clientName}, Đăng Ký Thành Công  ${email}`
         );
+        setTimeout(() => {
+          navigate("/SignIn");
+        }, 500);
         setClientName("");
         setEmail("");
         setPhone("");
@@ -134,7 +144,7 @@ const SignUp = () => {
       <div className="w-1/2 hidden lgl:inline-flex h-full text-white">
         <div className="w-[450px] h-full bg-primeColor px-10 flex flex-col gap-6 justify-center">
           <Link to="/">
-            <img src={logoLight} alt="logoImg" className="w-28" />
+
           </Link>
           <div className="flex flex-col gap-1 -mt-1">
             <h1 className="font-titleFont text-xl font-medium">
@@ -148,11 +158,10 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Get started fast with OREBI
+                Nổi Bật Nhất
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Review deal Black Friday Roborock Q Revo: Đầy tính năng lau dọn cao cấp, sale lun 50%
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -161,11 +170,10 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Access all OREBI services
+                Nổi Bật Nhất
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Review deal Black Friday Roborock Q Revo: Đầy tính năng lau dọn cao cấp, sale lun 50%
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -174,17 +182,18 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Trusted by online Shoppers
+                Nổi Bật Nhất
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
+              Review deal Black Friday Roborock Q Revo: Đầy tính năng lau dọn cao cấp, sale lun 50%
             </p>
           </div>
           <div className="flex items-center justify-between mt-10">
-            <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              © OREBI
-            </p>
+            <Link to="/">
+              <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
+                Page
+              </p>
+            </Link>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
               Terms
             </p>
@@ -216,7 +225,7 @@ const SignUp = () => {
           <form className="w-full lgl:w-[500px] h-screen flex items-center justify-center">
             <div className="px-6 py-4 w-full h-[96%] flex flex-col justify-start overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
               <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
-                Create your account
+                Đăng Ký Tài Khoản
               </h1>
               <div className="flex flex-col gap-3">
                 {/* client name */}
@@ -229,7 +238,7 @@ const SignUp = () => {
                     value={clientName}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="eg. John Doe"
+                    placeholder="Hoàng Hữu Cường"
                   />
                   {errClientName && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -248,7 +257,7 @@ const SignUp = () => {
                     value={email}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="email"
-                    placeholder="john@workemail.com"
+                    placeholder="hoangcuong@gmail.com"
                   />
                   {errEmail && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -267,7 +276,7 @@ const SignUp = () => {
                     value={phone}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="008801234567891"
+                    placeholder="0001234567"
                   />
                   {errPhone && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -305,7 +314,7 @@ const SignUp = () => {
                     value={address}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="road-001, house-115, example area"
+                    placeholder=""
                   />
                   {errAddress && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -343,7 +352,7 @@ const SignUp = () => {
                     value={country}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your country"
+                    placeholder="Việt Nam"
                   />
                   {errCountry && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -362,7 +371,7 @@ const SignUp = () => {
                     value={zip}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your country"
+                    placeholder="100000"
                   />
                   {errZip && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -379,18 +388,17 @@ const SignUp = () => {
                     type="checkbox"
                   />
                   <p className="text-sm text-primeColor">
-                    I agree to the OREBI{" "}
+                    I agree to the Shoppe{" "}
                     <span className="text-blue-500">Terms of Service </span>and{" "}
                     <span className="text-blue-500">Privacy Policy</span>.
                   </p>
                 </div>
                 <button
                   onClick={handleSignUp}
-                  className={`${
-                    checked
-                      ? "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
-                      : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
-                  } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
+                  className={`${checked
+                    ? "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
+                    : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
+                    } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
                 >
                   Create Account
                 </button>

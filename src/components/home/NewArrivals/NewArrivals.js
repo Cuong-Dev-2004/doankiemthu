@@ -7,6 +7,7 @@ import {
   newArrTwo,
   newArrThree,
   newArrFour,
+  newArrFive
 } from "../../../assets/images/index";
 import SampleNextArrow from "./SampleNextArrow";
 import SamplePrevArrow from "./SamplePrevArrow";
@@ -54,55 +55,56 @@ const NewArrivals = () => {
           <Product
             _id="100001"
             img={newArrOne}
-            productName="Round Table Clock"
+            productName="Áo phao dày có mũ"
             price="44.00"
             color="Black"
             badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Dòng sản phẩm Thu Đông của Coolmate mang đến những sản phẩm THIẾT YẾU và CƠ BẢN nhất đáp ứng nhu cầu của nam giới trong mọi ngày thu đông, linh hoạt cho hoạt động khác nhau như đi tập, đi chơi, hoặc đi làm."
           />
         </div>
         <div className="px-2">
           <Product
             _id="100002"
             img={newArrTwo}
-            productName="Smart Watch"
+            productName="Quần Dữ Nhiệt"
             price="250.00"
-            color="Black"
+            color="Gray"
             badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Dòng sản phẩm Thu Đông của Coolmate mang đến những sản phẩm THIẾT YẾU và CƠ BẢN nhất đáp ứng nhu cầu của nam giới trong mọi ngày thu đông, linh hoạt cho hoạt động khác nhau như đi tập, đi chơi, hoặc đi làm."
           />
         </div>
         <div className="px-2">
           <Product
             _id="100003"
             img={newArrThree}
-            productName="cloth Basket"
+            productName="Áo Khoác thể thảo"
             price="80.00"
-            color="Mixed"
+            color="Red"
             badge={true}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Dòng sản phẩm Thu Đông của Coolmate mang đến những sản phẩm THIẾT YẾU và CƠ BẢN nhất đáp ứng nhu cầu của nam giới trong mọi ngày thu đông, linh hoạt cho hoạt động khác nhau như đi tập, đi chơi, hoặc đi làm."
           />
         </div>
+
         <div className="px-2">
           <Product
             _id="100004"
             img={newArrFour}
-            productName="Funny toys for babies"
+            productName="Quần Sort"
             price="60.00"
             color="Mixed"
             badge={false}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Dòng sản phẩm Thu Đông của Coolmate mang đến những sản phẩm THIẾT YẾU và CƠ BẢN nhất đáp ứng nhu cầu của nam giới trong mọi ngày thu đông, linh hoạt cho hoạt động khác nhau như đi tập, đi chơi, hoặc đi làm."
           />
         </div>
         <div className="px-2">
           <Product
             _id="100005"
-            img={newArrTwo}
-            productName="Funny toys for babies"
+            img={newArrFive}
+            productName="Áo Chạy Bộ"
             price="60.00"
             color="Mixed"
             badge={false}
-            des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
+            des="Dòng sản phẩm Thu Đông của Coolmate mang đến những sản phẩm THIẾT YẾU và CƠ BẢN nhất đáp ứng nhu cầu của nam giới trong mọi ngày thu đông, linh hoạt cho hoạt động khác nhau như đi tập, đi chơi, hoặc đi làm."
           />
         </div>
       </Slider>
